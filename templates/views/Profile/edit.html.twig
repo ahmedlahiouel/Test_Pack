@@ -1,0 +1,50 @@
+{% extends "layoutadmin.html.twig" %}
+{% block ahmed1 %}
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <form method="post" action="{{ path('rechuser') }}">
+
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+
+                            <input name="nom" type="text" class="form-control" placeholder="chercher...">
+                            <span class="input-group-btn">
+       <button type="submit" value="Search " class="btn btn-default"/>
+                                               <i class="fa fa-search"></i>
+                                </button>
+
+
+
+                                </span>
+
+                        </div>
+
+                        <!-- /input-group -->
+                    </li>
+                </form>
+                <li>
+                    <a href="{{ path('gestionuser') }}">Gestion des Candidats
+                    </a>
+                    <!-- /.nav-second-level -->
+                </li>
+
+
+
+            </ul>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block ahmed %}
+
+    <font color="#22427C"><h3> Modifier Mes  Information Personelles </h3></font>
+
+
+    {% include "views/Profile/edit_content.html.twig" %}
+{% endblock ahmed %}
+
+
+
+

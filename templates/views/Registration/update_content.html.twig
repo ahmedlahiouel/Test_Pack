@@ -1,0 +1,101 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<center>
+    {{ form_start(form) }}
+    <font color="#16B84E"><h2> Update Pack Man</h2></font>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic" src="{{ asset('pac.png') }}"
+                                                                            class="img-circle img-responsive"></div>
+
+
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        {{ form_label(form.username) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form.username, { 'attr': {
+                                            'placeholder': 'Tapez Nom'} }) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ form_label(form.prenom) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form.prenom, { 'attr': {
+                                            'placeholder': 'Tapez Prenom'} }) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ form_label(form.date) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form.date) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ form_label(form.nouriture) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form.nouriture, { 'attr': {
+                                            'placeholder': 'Tapez Nouriture'} }) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ form_label(form.couleur) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form.couleur, { 'attr': {
+                                            'placeholder': 'Tapez Couleur'} }) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ form_label(form.famille) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form.famille, { 'attr': {
+                                            'placeholder': 'Tapez  Famille'} }) }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        {{ form_label(form.email) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(form.email, { 'attr': {
+                                            'placeholder': 'Tapez Email'} }) }}
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <div>
+        <input type="submit" value="Modifier" class="btn btn-lg btn-success btn-block"
+               style="width: 150px ;height: 50px"/>
+    </div>
+    <br>
+
+
+</center>

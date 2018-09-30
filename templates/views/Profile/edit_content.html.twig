@@ -1,0 +1,58 @@
+{% trans_default_domain 'FOSUserBundle' %}
+    {% for message in app.flashes('success') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+<center>
+<br> <br> <br>
+    {{ form_start(form, { 'action': path('updatadmin'), 'attr': { 'class': 'updatadmin' } }) }}
+    <table>
+        <tr>
+            <td>
+                {{ form_label(form.email) }}
+            </td>
+            <td>
+                {{ form_widget(form.email) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {{ form_label(form.username) }}
+            </td>
+            <td>
+                {{ form_widget(form.username) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {{ form_label((form.current_password)) }}
+
+            </td>
+            <td>
+                {{ form_widget((form.current_password))}}
+                {{ form_errors((form.current_password)) }}
+            </td>
+        </tr>
+
+        <tr> <td> Valider </td><td> <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="btn btn-lg btn-success btn-block"
+                                           style="width: 190px; height: 50px" />  </td></tr>
+
+        {{ form_end(form) }}
+
+
+
+        <tr><td> <strong> changer password </strong></td> <td>
+                <form action="{{ path('resetpassword') }}">
+                    <input type="submit" value=" reset Password" class="btn btn-lg btn-success btn-block"
+                           style="width: 190px; height: 50px"/>
+                </form>
+
+
+            </td></tr>
+
+    </table>
+</center>

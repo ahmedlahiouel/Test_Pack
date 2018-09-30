@@ -1,0 +1,102 @@
+{% extends "layout_user.html.twig" %}
+
+{% block ahmed1 %}
+<li class="active"><a href="{{ path('show') }}">Profil</a></li>
+<li><a href="{{ path('updateuser') }}">Update Information </a>
+</li>
+<li><a href="{{ path('showPack') }}">List Of Pack Man </a></li>
+<li><a href="{{ path('listamis') }}">List Of My Pack Man Freinds </a></li>
+
+<li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out fa-fw"></i>Log out</a>
+
+
+    {% endblock %}
+
+    {% block fos_user_content %}
+    <center>
+
+        {% for message in app.flashes('success') %}
+            <div class="flash-notice">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <font color="#22427C"><h3> Pack MAN Profil</h3></font>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic"
+                                                                                src="{{ asset('pac.png') }}"
+                                                                                class="img-circle img-responsive"></div>
+
+
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td> Nom :</td>
+
+                                        <td>
+                                            {{ modeles.username }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Prenom :</td>
+
+                                        <td>
+                                            {{ modeles.prenom }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Couleur :</td>
+
+                                        <td>
+                                            {{ modeles.couleur }}
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td> Nourriture :</td>
+
+                                        <td>
+                                            {{ modeles.nouriture }}
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td> Famille :</td>
+
+                                        <td>
+                                            {{ modeles.famille }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Date:</td>
+                                        <td>
+                                            {{ modeles.date|date('Y-m-d') }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Age Par Ans :</td>
+                                        <td>
+                                            {{ age }} ans
+                                        </td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        {% endblock fos_user_content %}

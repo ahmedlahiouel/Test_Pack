@@ -1,0 +1,19 @@
+{% extends "layout_user.html.twig" %}
+
+{% block ahmed1 %}
+    <li><a href="{{ path('default') }}">Home</a></li>
+
+    <li class="active"><a href="{{ path('create_compte_pack') }}">Register</a></li>
+
+
+    <li><a href="{{ path('fos_user_security_login') }}">Log IN</a></li>
+
+{% endblock %}
+
+{% block fos_user_content %}
+
+    <font color="#22427C"><h3> Register </h3></font>
+
+
+    {% include "views/Registration/register_content.html.twig" %}
+{% endblock fos_user_content %}

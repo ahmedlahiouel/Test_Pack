@@ -1,0 +1,129 @@
+{% extends "layout_user.html.twig" %}
+
+{% block ahmed1 %}
+<li><a href="{{ path('show') }}">Profil</a></li>
+<li><a href="{{ path('updateuser') }}">Update Information </a>
+</li>
+<li class="active"><a href="{{ path('showPack') }}">List Of Pack Man </a></li>
+<li><a href="{{ path('listamis') }}">List Of My Pack Man Freinds </a></li>
+
+<li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out fa-fw"></i>Log out</a>
+
+
+    {% endblock %}
+
+    {% block fos_user_content %}
+        <center>
+
+            {% for message in app.flashes('success') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <font color="#22427C"><h3> Pack MAN </h3></font>
+            {% if modeles is empty %}
+
+            <font color="#22427C"><h3> Pas Des PAck Man Pour les ajouter a votre liste d'amis  </h3></font>
+
+
+            {% else  %}
+
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                       aria-describedby="example1_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Engine version: activate to sort column ascending" style="width: 155px;">PAck
+                            MAn
+                        </th>
+
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Engine version: activate to sort column ascending" style="width: 155px;">Id
+                        </th>
+
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Browser: activate to sort column ascending" style="width: 223px;">Nom
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Engine version: activate to sort column ascending" style="width: 155px;">Prenom
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Engine version: activate to sort column ascending" style="width: 155px;">Famille
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Engine version: activate to sort column ascending" style="width: 155px;">Date
+                            Naissance
+                        </th>
+
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Engine version: activate to sort column ascending" style="width: 155px;">Couleur
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="CSS grade: activate to sort column ascending" style="width: 113px;">Nourriture
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="CSS grade: activate to sort column ascending" style="width: 113px;">Ajouter Amis
+                        </th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    {% for model in modeles %}
+
+                        <tr role="row" class="odd">
+                            <td><img src="{{ asset('pac.png') }}" width="100%" height="90px"
+                                     alt="Offre">
+                            <td>{{ model.id }}</td>
+                            <td>{{ model.username }}</td>
+                            <td>{{ model.prenom }}</td>
+                            <td>{{ model.famille }}</td>
+                            <td>{{ model.date|date('Y-m-d') }}</td>
+
+                            <td>{{ model.couleur }}</td>
+                            <td>{{ model.Nouriture }}</td>
+
+                            <td>
+                                <form action="{{ path('Add_Pack_Liste_Amis', {'id': model.id }) }}">
+                                    <input type="submit" value="Ajouter Amis" class="btn btn-lg btn-success btn-block"
+                                           style="width: 150px height: 150px"/>
+                                </form>
+                            </td>
+
+
+
+
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th rowspan="1" colspan="1">PAck</th>
+
+                        <th rowspan="1" colspan="1">id</th>
+
+                        <th rowspan="1" colspan="1">Nom</th>
+                        <th rowspan="1" colspan="1">Prenom</th>
+                        <th rowspan="1" colspan="1">famille</th>
+                        <th rowspan="1" colspan="1">Date</th>
+
+                        <th rowspan="1" colspan="1">couleur</th>
+                        <th rowspan="1" colspan="1">nouriture</th>
+                        <th rowspan="1" colspan="1">Ajouter Amis</th>
+
+
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            </div>
+
+            {% endif %}
+
+        </center>
+
+    {% endblock fos_user_content %}
